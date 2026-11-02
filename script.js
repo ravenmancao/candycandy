@@ -43,14 +43,12 @@ let gameLoop;
 /* ========================= */
 
 const weapons = [
-
-    {name:"M13", class:"m13"},
-    {name:"Krig", class:"krig"},
-    {name:"Fennec", class:"fennec"},
-    {name:"Holger", class:"holger"},
-    {name:"Rytec", class:"rytec"},
-    {name:"Switchblade", class:"switchblade"}
-
+    {name:"🎀", class:"m13"},
+    {name:"🩵", class:"krig"},
+    {name:"🌸", class:"fennec"},
+    {name:"🦋", class:"holger"},
+    {name:"♡", class:"rytec"},
+    {name:"☁️", class:"switchblade"}
 ];
 
 let squares = [];
