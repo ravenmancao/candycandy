@@ -8,13 +8,23 @@ body{
     overflow:hidden;
     min-height:100vh;
     font-family:'Segoe UI',sans-serif;
-    background:
-linear-gradient(rgba(255,192,203,.35), rgba(255,255,255,.35)),
-url("jaja.jpg");
 
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,182,193,.8), transparent 35%),
+        radial-gradient(circle at 85% 15%, rgba(255,105,180,.35), transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(255,192,203,.8), transparent 45%),
+        linear-gradient(
+            135deg,
+            #ffe4ec,
+            #ffc0d9,
+            #fff0f5,
+            #ffb6d0,
+            #ffe4ec
+        );
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 
     display:flex;
     flex-direction:column;
