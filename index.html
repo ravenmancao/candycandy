@@ -1,86 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CODM CRUSH</title>
-    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rave Crush | Coquette Edition</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="sakura"></div>
-<div class="overlay"></div>
+    <!-- BACKGROUND DECORATIONS -->
+    <div class="sakura"></div>
+    <div class="overlay"></div>
 
-<h1>🌸 Rave Crush 🌸</h1>
+    <!-- GAME TITLE -->
+    <h1>🎀 Rave Crush 🌸</h1>
 
-<div class="top-ui">
+    <!-- SCORE / TIMER / BEST -->
+    <div class="top-ui">
 
-    <div class="ui-box">
-        SCORE
-        <span id="score">0</span>
+        <div class="ui-box">
+            SCORE
+            <span id="score">0</span>
+        </div>
+
+        <div class="ui-box">
+            TIME
+            <span id="timer">16</span>
+        </div>
+
+        <div class="ui-box">
+            BEST
+            <span id="highScore">0</span>
+        </div>
+
     </div>
 
-    <div class="ui-box">
-        TIME
-        <span id="timer">30</span>
+    <!-- GAME CONTROLS -->
+    <div class="controls">
+
+        <button id="pauseBtn">
+            ⏸ PAUSE
+        </button>
+
+        <button onclick="exitGame()">
+            ♡ EXIT
+        </button>
+
     </div>
 
-    <div class="ui-box">
-        BEST
-        <span id="highScore">0</span>
+    <!-- GAME BOARD -->
+    <div id="board"></div>
+
+    <!-- START SCREEN -->
+    <div id="startScreen">
+
+        <h2>🎀 MYTHIC CRUSH 🌸</h2>
+
+        <p>
+            Match your favorite tiles
+            and beat your best score!
+        </p>
+
+        <button onclick="startCountdown()">
+            ♡ PLAY ♡
+        </button>
+
     </div>
 
-</div>
+    <!-- COUNTDOWN SCREEN -->
+    <div id="countdownScreen">
 
-<div class="controls">
+        <span id="countdownText">3</span>
 
-    <button id="pauseBtn">
-        ⏸ PAUSE
-    </button>
+    </div>
 
-    <button onclick="exitGame()">
-        ❌ EXIT
-    </button>
+    <!-- GAME OVER SCREEN -->
+    <div id="gameOver">
 
-</div>
+        <h2>GAME OVER ♡</h2>
 
-<div id="board"></div>
+        <p>
+            Final Score:
+            <span id="finalScore">0</span>
+        </p>
 
-<!-- START SCREEN -->
+        <button onclick="restartGame()">
+            🎀 PLAY AGAIN
+        </button>
 
-<div id="startScreen">
+    </div>
 
-    <h2>🌸 MYTHIC CRUSH 🌸</h2>
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
 
-    <button onclick="startCountdown()">
-        ▶ PLAY
-    </button>
-
-</div>
-
-<!-- COUNTDOWN -->
-
-<div id="countdownScreen">
-    <span id="countdownText">3</span>
-</div>
-
-<!-- GAME OVER -->
-
-<div id="gameOver">
-
-    <h2>GAME OVER</h2>
-
-    <p>
-        Final Score:
-        <span id="finalScore"></span>
-    </p>
-
-    <button onclick="restartGame()">
-        PLAY AGAIN
-    </button>
-
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
