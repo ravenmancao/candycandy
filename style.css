@@ -1,626 +1,184 @@
-*{
-    box-sizing:border-box;
-    padding:0;
-    margin:0;
-}
 
-body{
-    overflow:hidden;
-    min-height:100vh;
-    font-family:'Segoe UI',sans-serif;
+/* =====================================
+   PINK × BABY BLUE CLOUDY THEME
+   ===================================== */
 
+body {
     background:
-        radial-gradient(circle at 15% 20%, rgba(255,182,193,.8), transparent 35%),
-        radial-gradient(circle at 85% 15%, rgba(255,105,180,.35), transparent 40%),
-        radial-gradient(circle at 50% 85%, rgba(255,192,203,.8), transparent 45%),
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(223,168,190,.65),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(169,201,232,.65),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(197,217,232,.7),
+            transparent 45%
+        ),
         linear-gradient(
             135deg,
-            #ffe4ec,
-            #ffc0d9,
-            #fff0f5,
-            #ffb6d0,
-            #ffe4ec
+            #e8c8d8,
+            #b9d0e5,
+            #e5d7e9,
+            #c1d8e9
         );
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    color:white;
-    position:relative;
+    background-size: 200% 200%;
+    animation: cloudyBackground 18s ease infinite;
+    color: #45566f;
 }
 
-/* ========================= */
-/* SAKURA PARTICLES */
-/* ========================= */
+@keyframes cloudyBackground {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
+/* TITLE */
+
+h1 {
+    background: linear-gradient(
+        90deg,
+        #789fc7,
+        #c17eaa,
+        #789fc7
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 2px 12px rgba(100,130,170,.15);
+}
+
+/* GLASS UI */
+
+.ui-box {
+    background: rgba(235, 242, 250, .42);
+    border: 1px solid rgba(255,255,255,.45);
+
+    box-shadow:
+        0 8px 25px rgba(103,130,165,.15),
+        inset 0 1px 5px rgba(255,255,255,.35);
+
+    color: #45566f;
+}
+
+/* GAME BOARD */
+
+#board {
+    background: rgba(228, 237, 247, .38);
+
+    border: 1px solid rgba(255,255,255,.5);
+
+    box-shadow:
+        0 10px 35px rgba(100,130,170,.2),
+        inset 0 3px 12px rgba(255,255,255,.3);
+}
+
+/* TILE COLORS */
+
+.m13 {
+    background: linear-gradient(145deg,#cf829f,#e5a9bd);
+}
+
+.krig {
+    background: linear-gradient(145deg,#719ac8,#a9c9e8);
+}
+
+.fennec {
+    background: linear-gradient(145deg,#78aaa7,#a6d2cb);
+}
+
+.holger {
+    background: linear-gradient(145deg,#a88bc5,#d0b6df);
+}
+
+.rytec {
+    background: linear-gradient(145deg,#d49b78,#edc5a6);
+}
+
+.switchblade {
+    background: linear-gradient(145deg,#70b5cc,#a9d9e8);
+}
+
+/* TILE HOVER */
+
+.tile:hover {
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 8px 18px rgba(95,125,165,.2);
+}
+
+/* BOMB */
+
+.bomb {
+    box-shadow:
+        0 0 15px rgba(231,190,115,.55),
+        0 0 25px rgba(231,190,115,.3);
+}
+
+/* ROCKET */
+
+.rocket {
+    box-shadow:
+        0 0 15px rgba(112,181,204,.6),
+        0 0 25px rgba(112,181,204,.3);
+}
+
+/* GAME OVER & START SCREEN */
+
+#gameOver,
+#startScreen,
+#countdownScreen {
+    background: rgba(180,199,222,.48);
+    backdrop-filter: blur(16px);
+    color: #45566f;
+}
+
+#gameOver h2,
+#startScreen h2 {
+    color: #45566f;
+
+    text-shadow:
+        0 3px 15px rgba(216,156,184,.4);
+}
+
+/* BUTTONS */
+
+button {
+    background: linear-gradient(
+        135deg,
+        #cb8eaa,
+        #89afd3
+    );
+
+    color: white;
+
+    box-shadow:
+        0 7px 18px rgba(100,130,165,.2);
+}
+
+button:hover {
+    filter: brightness(1.06);
+}
+
+/* SAKURA PARTICLES */
 
 body::before,
-body::after{
-    content:"🌸 🌸 🌸 🌸 🌸 🌸 🌸";
-    position:absolute;
-    width:200%;
-    font-size:35px;
-    opacity:.25;
-    animation: sakuraFloat 18s linear infinite;
-    white-space:nowrap;
+body::after {
+    content: "☁️ 🌸 ☁️ 🩵 🌸 ☁️";
+    opacity: .20;
 }
 
-body::after{
-    top:50%;
-    animation-duration:28s;
-    opacity:.18;
-}
-
-@keyframes sakuraFloat{
-    from{
-        transform:translateX(-50%) translateY(-20px);
-    }
-    to{
-        transform:translateX(0%) translateY(120vh);
-    }
-}
-
-/* ========================= */
-/* TITLE */
-/* ========================= */
-
-h1{
-    margin-top:20px;
-    font-size:54px;
-    font-weight:900;
-    letter-spacing:4px;
-
-    background:linear-gradient(
-        90deg,
-        #4a41ff,
-        #9696ff,
-        #ff83c1,
-        #ff4da9
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:
-        0 0 15px rgba(255, 138, 218, 0.7),
-        0 0 30px rgba(255, 95, 191, 0.8);
-
-    animation: glowTitle 2s infinite alternate;
-}
-
-@keyframes glowTitle{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.03);
-    }
-}
-
-/* ========================= */
-/* UI */
-/* ========================= */
-
-.top-ui{
-    display:flex;
-    gap:25px;
-    margin:20px;
-}
-
-.ui-box{
-    width:160px;
-    padding:14px;
-
-    background:rgba(255,255,255,.18);
-
-    border:
-    1px solid rgba(255,255,255,.3);
-
-    backdrop-filter:blur(18px);
-
-    border-radius:22px;
-
-    box-shadow:
-    0 8px 30px rgba(255,105,180,.25),
-    inset 0 2px 6px rgba(255,255,255,.4);
-
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.ui-box:hover{
-    transform:translateY(-3px) scale(1.03);
-}
-
-.ui-box span{
-    display:block;
-    margin-top:5px;
-    font-size:32px;
-}
-
-/* ========================= */
-/* BOARD */
-/* ========================= */
-
-#board{
-    width:min(92vw,520px);
-    height:min(92vw,520px);
-
-    padding:10px;
-
-    display:flex;
-    flex-wrap:wrap;
-
-    border-radius:35px;
-
-    background:
-    rgba(255,255,255,.15);
-
-    backdrop-filter:blur(15px);
-
-    border:
-    1px solid rgba(255,255,255,.25);
-
-    box-shadow:
-    0 10px 40px rgba(255,105,180,.3),
-    inset 0 4px 12px rgba(255,255,255,.3);
-
-    perspective:1000px;
-}
-
-/* ========================= */
-/* TILES */
-/* ========================= */
-
-.tile{
-    width:calc(100% / 8 - 2px);
-    height:calc(100% / 8 - 2px);
-
-    margin:1px;
-
-    border-radius:18px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:10px;
-    font-weight:800;
-    text-transform:uppercase;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    position:relative;
-
-    transform-style:preserve-3d;
-
-    transition:
-    transform .22s cubic-bezier(.2,.8,.2,1),
-    box-shadow .22s,
-    filter .22s;
-}
-
-/* 3D LAYER */
-
-.tile::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    border-radius:18px;
-
-    background:
-    linear-gradient(
-        180deg,
-        rgba(255,255,255,.55),
-        rgba(255,255,255,0)
-    );
-
-    transform:
-    translateZ(12px);
-
-    pointer-events:none;
-}
-
-/* SHADOW */
-
-.tile::after{
-    content:"";
-    position:absolute;
-    width:90%;
-    height:12px;
-
-    background:rgba(0,0,0,.2);
-
-    bottom:-7px;
-    left:5%;
-
-    filter:blur(8px);
-
-    z-index:-1;
-}
-
-/* HOVER */
-
-.tile:hover{
-    transform:
-    rotateX(10deg)
-    rotateY(-10deg)
-    scale(1.12)
-    translateY(-4px);
-
-    z-index:50;
-
-    filter:brightness(1.15);
-
-    box-shadow:
-    0 12px 25px rgba(255,255,255,.35),
-    0 0 25px rgba(255,255,255,.3);
-}
-
-/* ========================= */
-/* COLORS */
-/* ========================= */
-
-.m13{
-    background:
-    linear-gradient(145deg,#ff4d6d,#ff94a6);
-}
-
-.krig{
-    background:
-    linear-gradient(145deg,#5f6fff,#9cb2ff);
-}
-
-.fennec{
-    background:
-    linear-gradient(145deg,#00c896,#80ffe1);
-}
-
-.holger{
-    background:
-    linear-gradient(145deg,#c06bff,#edc7ff);
-}
-
-.rytec{
-    background:
-    linear-gradient(145deg,#ff9f43,#ffe0b3);
-}
-
-.switchblade{
-    background:
-    linear-gradient(145deg,#00e5ff,#b6f7ff);
-}
-
-/* ========================= */
-/* MATCH FX */
-/* ========================= */
-
-.explode{
-    animation:
-    explodeAnim .45s ease forwards,
-    flash .2s;
-}
-
-@keyframes flash{
-    0%{
-        filter:brightness(3);
-    }
-    100%{
-        filter:brightness(1);
-    }
-}
-
-@keyframes explodeAnim{
-
-    0%{
-        transform:
-        scale(1)
-        rotate(0deg);
-        opacity:1;
-    }
-
-    40%{
-        transform:
-        scale(1.25)
-        rotate(8deg);
-    }
-
-    100%{
-        transform:
-        scale(0)
-        rotate(30deg);
-        opacity:0;
-    }
-}
-
-/* ========================= */
-/* FALL */
-/* ========================= */
-
-.fall{
-    animation:fallAnim .25s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes fallAnim{
-    from{
-        transform:
-        translateY(-90px)
-        scale(1.08);
-        opacity:.5;
-    }
-
-    to{
-        transform:
-        translateY(0)
-        scale(1);
-        opacity:1;
-    }
-}
-
-/* ========================= */
-/* BOMB */
-/* ========================= */
-
-.bomb{
-
-    animation:
-    bombPulse .7s infinite alternate;
-
-    box-shadow:
-    0 0 25px #fff176,
-    0 0 50px #ffeb3b;
-}
-
-@keyframes bombPulse{
-
-    from{
-        transform:scale(1);
-    }
-
-    to{
-        transform:scale(1.18);
-    }
-}
-
-/* ========================= */
-/* ROCKET */
-/* ========================= */
-
-.rocket{
-
-    animation:
-    rocketMove .18s infinite alternate;
-
-    box-shadow:
-    0 0 25px cyan,
-    0 0 50px #00e5ff;
-}
-
-@keyframes rocketMove{
-
-    from{
-        transform:
-        translateY(0)
-        rotate(-2deg);
-    }
-
-    to{
-        transform:
-        translateY(-5px)
-        rotate(2deg);
-    }
-}
-
-/* ========================= */
-/* GAME OVER */
-/* ========================= */
-
-#gameOver{
-    display:none;
-
-    position:fixed;
-    inset:0;
-
-    background:
-    rgba(255,192,203,.18);
-
-    backdrop-filter:blur(12px);
-
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    z-index:999;
-}
-
-#gameOver h2{
-    font-size:72px;
-
-    color:rgb(0, 0, 0);
-
-    text-shadow:
-    0 0 20px #ff69b4,
-    0 0 40px rgb(255, 255, 255);
-
-    animation:pulseGameOver 1s infinite alternate;
-}
-
-@keyframes pulseGameOver{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.05);
-    }
-}
-
-#gameOver p{
-    margin-top:15px;
-    font-size:30px;
-}
-
-button{
-    margin-top:25px;
-
-    padding:16px 35px;
-
-    border:none;
-
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-        145deg,
-        #ff69b4,
-        #fa6eb6
-    );
-
-    color:white;
-
-    font-size:18px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-    box-shadow:
-    0 10px 25px rgba(255,105,180,.4);
-}
-
-button:hover{
-
-    transform:
-    scale(1.08)
-    translateY(-2px);
-
-    filter:brightness(1.1);
-}
-
-/* ========================= */
-/* MOBILE RESPONSIVE */
-/* ========================= */
-
-@media(max-width:768px){
-
-    h1{
-        font-size:34px;
-        margin-top:15px;
-    }
-
-    .top-ui{
-        gap:12px;
-    }
-
-    .ui-box{
-        width:120px;
-        padding:10px;
-        border-radius:16px;
-    }
-
-    .ui-box span{
-        font-size:24px;
-    }
-
-    #board{
-        width:95vw;
-        height:95vw;
-        border-radius:20px;
-        padding:6px;
-    }
-
-    .tile{
-        font-size:8px;
-        border-radius:12px;
-    }
-
-    #gameOver h2{
-        font-size:48px;
-    }
-
-    #gameOver p{
-        font-size:22px;
-    }
-
-    button{
-        padding:12px 24px;
-        font-size:16px;
-    }
-}
-
-/* ========================= */
-/* CONTROLS */
-/* ========================= */
-
-.controls{
-    display:flex;
-    gap:15px;
-    margin-bottom:15px;
-}
-
-/* ========================= */
-/* START SCREEN */
-/* ========================= */
-
-#startScreen,
-#countdownScreen{
-    position:fixed;
-    inset:0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    background:
-    rgba(255,192,203,.18);
-
-    backdrop-filter:blur(12px);
-
-    z-index:9999;
-}
-
-#startScreen h2{
-    font-size:64px;
-
-    margin-bottom:30px;
-
-    text-shadow:
-    0 0 20px #ff69b4,
-    0 0 40px white;
-}
-
-#countdownScreen{
-    display:none;
-}
-
-#countdownText{
-    font-size:120px;
-    font-weight:900;
-
-    color:white;
-
-    animation:
-    countdownPop .8s infinite;
-}
-
-@keyframes countdownPop{
-
-    0%{
-        transform:scale(.5);
-        opacity:.3;
-    }
-
-    100%{
-        transform:scale(1.2);
-        opacity:1;
-    }
+/* COUNTDOWN */
+
+#countdownText {
+    color: #f8f1f7;
+    text-shadow: 0 3px 15px rgba(85,110,145,.35);
 }
