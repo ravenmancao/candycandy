@@ -1,102 +1,194 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e7c9dc">
+<title>Rave Crush — Coquette Edition</title>
 
-    <title>Rave Crush | Coquette Edition</title>
+<!-- Google Fonts: Rave Crush Soft Coquette Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- BACKGROUND DECORATIONS -->
-    <div class="sakura"></div>
-    <div class="overlay"></div>
+<div class="ambient" aria-hidden="true">
+    <span>♡</span><span>✧</span><span>☁</span>
+    <span>✿</span><span>♡</span><span>✧</span>
+    <div id="petals"></div>
+</div>
 
-    <!-- GAME TITLE -->
-    <h1>🎀 Rave Crush 🌸</h1>
+<header>
+    <div class="flower">✿</div>
+    <h1>Rave <em>Crush</em></h1>
+    <p>a little sparkle, a lot of fun ♡</p>
+    <button id="musicToggle" class="music">♫ Music: Off</button>
+</header>
 
-    <!-- SCORE / TIMER / BEST -->
-    <div class="top-ui">
+<main>
 
-        <div class="ui-box">
-            SCORE
-            <span id="score">0</span>
+<section id="setup" class="panel">
+    <small class="eyebrow">♡ WELCOME, PLAYER ♡</small>
+    <h2>Let's play!</h2>
+    <p class="intro">
+        Choose your board and challenge level to begin your little adventure.
+    </p>
+
+    <div class="section-title">
+        <b>01</b>
+        <div>
+            <strong>Choose your board</strong>
+            <small>Pick the size you want to play.</small>
         </div>
+    </div>
 
-        <div class="ui-box">
-            TIME
-            <span id="timer">16</span>
+    <div class="layouts">
+        <button class="layout" data-layout="4x4">
+            <span class="mini m44"></span>
+            <b>4 × 4</b>
+            <small>16 tiles</small>
+        </button>
+
+        <button class="layout chosen" data-layout="8x8">
+            <span class="mini m88"></span>
+            <b>8 × 8</b>
+            <small>64 tiles</small>
+        </button>
+
+        <button class="layout" data-layout="4x8">
+            <span class="mini m48"></span>
+            <b>4 × 8</b>
+            <small>32 tiles</small>
+        </button>
+
+        <button class="layout" data-layout="8x4">
+            <span class="mini m84"></span>
+            <b>8 × 4</b>
+            <small>32 tiles</small>
+        </button>
+    </div>
+
+    <div class="section-title">
+        <b>02</b>
+        <div>
+            <strong>Choose difficulty</strong>
+            <small>How sparkly should the challenge be?</small>
         </div>
+    </div>
 
-        <div class="ui-box">
-            BEST
-            <span id="highScore">0</span>
+    <div class="levels">
+        <button class="level" data-level="easy">
+            <span>🌷</span>
+            <b>Easy</b>
+            <small>60 seconds · relaxed</small>
+        </button>
+
+        <button class="level chosen" data-level="medium">
+            <span>🎀</span>
+            <b>Medium</b>
+            <small>45 seconds · balanced</small>
+        </button>
+
+        <button class="level" data-level="hard">
+            <span>💜</span>
+            <b>Hard</b>
+            <small>30 seconds · speedy</small>
+        </button>
+    </div>
+
+    <div id="summary" class="summary">
+        Your game: <b>8 × 8 board</b> · <b>Medium</b>
+    </div>
+
+    <button id="play" class="primary">♡ PLAY GAME ♡</button>
+
+    <p class="tip">
+        Swap neighboring tiles to make matches of 3 or more.
+    </p>
+</section>
+
+
+<section id="game" hidden>
+
+    <div class="game-heading">
+        <div>
+            <small class="eyebrow">YOUR LITTLE ADVENTURE</small>
+            <h2>Let's crush it! ✨</h2>
         </div>
-
+        <button id="back" class="soft">↶ SETUP</button>
     </div>
 
-    <!-- GAME CONTROLS -->
-    <div class="controls">
-
-        <button id="pauseBtn">
-            ⏸ PAUSE
-        </button>
-
-        <button onclick="exitGame()">
-            ♡ EXIT
-        </button>
-
+    <div class="stats">
+        <div>SCORE<strong id="score">0</strong></div>
+        <div id="timerCard">TIME<strong id="timer">45</strong></div>
+        <div>BEST<strong id="best">0</strong></div>
     </div>
 
-    <!-- GAME BOARD -->
-    <div id="board"></div>
-
-    <!-- START SCREEN -->
-    <div id="startScreen">
-
-        <h2>🎀 MYTHIC CRUSH 🌸</h2>
-
-        <p>
-            Match your favorite tiles
-            and beat your best score!
-        </p>
-
-        <button onclick="startCountdown()">
-            ♡ PLAY ♡
-        </button>
-
+    <div class="toolbar">
+        <span id="mode">8 × 8 · Medium</span>
+        <div>
+            <button id="pause" class="soft">Ⅱ PAUSE</button>
+            <button id="exit" class="soft">♡ EXIT</button>
+        </div>
     </div>
 
-    <!-- COUNTDOWN SCREEN -->
-    <div id="countdownScreen">
-
-        <span id="countdownText">3</span>
-
+    <div class="board-frame">
+        <div id="board" role="grid" aria-label="Match three board"></div>
     </div>
 
-    <!-- GAME OVER SCREEN -->
-    <div id="gameOver">
+    <p class="tip">
+        Swap neighboring tiles · Match 3 or more · Have fun! ♡
+    </p>
+</section>
 
-        <h2>GAME OVER ♡</h2>
+</main>
 
-        <p>
-            Final Score:
-            <span id="finalScore">0</span>
-        </p>
 
-        <button onclick="restartGame()">
-            🎀 PLAY AGAIN
-        </button>
-
+<div id="countdown" class="modal" hidden>
+    <div class="modal-card">
+        <p>GET READY!</p>
+        <strong id="count">3</strong>
+        <span>♡ ♡ ♡</span>
     </div>
+</div>
 
-    <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
 
+<div id="pauseModal" class="modal" hidden>
+    <div class="modal-card">
+        <div class="big-icon">☁</div>
+        <h2>Game paused</h2>
+        <p>Take your time, lovely player.</p>
+        <button id="resume" class="primary">♡ RESUME ♡</button>
+        <button id="pauseSetup" class="text-button">Back to setup</button>
+    </div>
+</div>
+
+
+<div id="over" class="modal" hidden>
+    <div class="modal-card">
+        <div class="big-icon">🌸</div>
+        <small class="eyebrow">THAT WAS LOVELY!</small>
+        <h2>Time's up!</h2>
+        <p>Your final score</p>
+        <strong id="final" class="final">0</strong>
+        <p id="bestMessage"></p>
+        <button id="again" class="primary">♡ PLAY AGAIN ♡</button>
+        <button id="overSetup" class="text-button">Choose another setup</button>
+    </div>
+</div>
+
+
+<audio id="bgMusic" loop preload="none">
+    <source src="audio/gymnopedie.mp3" type="audio/mpeg">
+</audio>
+
+<footer>Made with love, ribbons & little sparkles ♡</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
