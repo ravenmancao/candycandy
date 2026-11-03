@@ -2240,3 +2240,90 @@ body[data-theme="dark"] main {
     position: relative;
     z-index: 1;
 }
+
+/* MUSIC CREDITS - THEME ADAPTIVE */
+.credits-btn {
+    padding: 9px 16px;
+    border: 1px solid var(--credits-border);
+    border-radius: 20px;
+    background: var(--credits-button-bg);
+    color: var(--credits-text);
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.credits-btn:hover {
+    background: var(--credits-button-hover);
+    transform: translateY(-2px);
+}
+
+/* POPUP */
+.credits-dialog {
+    width: min(340px, 85%);
+    padding: 25px;
+    border: 1px solid var(--credits-border);
+    border-radius: 22px;
+    background: var(--credits-bg);
+    color: var(--credits-text);
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+.credits-dialog::backdrop {
+    background: rgba(20, 15, 25, 0.55);
+    backdrop-filter: blur(5px);
+}
+
+.credits-content h2 {
+    color: var(--credits-heading);
+    margin-top: 0;
+}
+
+.credits-content p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.credits-content a {
+    color: var(--credits-link);
+    text-decoration: underline;
+}
+
+.credits-close {
+    margin-top: 12px;
+    padding: 9px 22px;
+    border: 1px solid var(--credits-border);
+    border-radius: 20px;
+    background: var(--credits-button-bg);
+    color: var(--credits-text);
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s ease;
+}
+
+.credits-close:hover {
+    background: var(--credits-button-hover);
+}
+
+/* LIGHT MODE */
+:root {
+    --credits-bg: #fff7fb;
+    --credits-text: #80566b;
+    --credits-heading: #b66e91;
+    --credits-link: #b66e91;
+    --credits-border: #ecc5d7;
+    --credits-button-bg: #fff0f6;
+    --credits-button-hover: #f9dce9;
+}
+
+/* RAVE CRUSH - DARK MODE MUSIC CREDITS */
+body[data-theme="dark"] {
+    --credits-bg: #292333;
+    --credits-text: #eadce9;
+    --credits-heading: #e8b5d0;
+    --credits-link: #f0b9d6;
+    --credits-border: #59445f;
+    --credits-button-bg: #3b3046;
+    --credits-button-hover: #51405e;
+}

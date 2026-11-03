@@ -1548,3 +1548,16 @@ summary();
 
     updatePet();
 })();
+
+/* MUSIC CREDITS POPUP */
+const creditsBtn = document.getElementById("creditsBtn");
+const creditsDialog = document.getElementById("creditsDialog");
+const closeCredits = document.getElementById("closeCredits");
+
+creditsBtn.addEventListener("click", () => {
+    creditsDialog.showModal();
+});
+
+closeCredits.addEventListener("click", () => {
+    creditsDialog.close();
+});
