@@ -1062,7 +1062,7 @@ $("musicToggle").onclick = async () => {
     }
 };
 
-music.volume = 0.25;
+music.volume = 0.35;
 
 
 /* =========================
